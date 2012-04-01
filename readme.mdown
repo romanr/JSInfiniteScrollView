@@ -1,7 +1,23 @@
 JSInfiniteScrollView
 ====================
 
+Using this scrollView class you can implement horizontal dial control.
+
 An infinitely scrolling (or wrapping) scroll view. You provide the views and it allows you to scroll in one direction forever without ever hitting and end.
+
+This is fork from jasarien project. Thanks for making this possible!
+this fork includes additional features so it's not compatible with original project.
+
+Infinite scrollView with three unique features combined 
+------------------------
+
+- Infinite "wrap-around" scrolling
+- Dynamic creation and reallocation of sub-views. Important if you have large dataset.
+- Extended hit area: show left and right items. Renders +2 next and previous views.
+
+There are other interesting scrollview projects but none of them combines all of the above.
+
+![](https://raw.github.com/romanr/JSInfiniteScrollView/master/ScreenShot1.png) 
 
 UITableView Inspired API
 ------------------------
