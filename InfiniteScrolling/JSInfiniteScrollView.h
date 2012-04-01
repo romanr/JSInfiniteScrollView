@@ -15,7 +15,7 @@
 @required
 - (NSUInteger)numberOfViewsInInfiniteScrollView:(JSInfiniteScrollView *)scrollView;
 - (UIView *)infiniteScrollView:(JSInfiniteScrollView*)scrollView viewForIndex:(NSUInteger)index;
-
+- (float)widthForElementInInfiniteScrollView:(JSInfiniteScrollView*)scrollView;
 @end
 
 @protocol JSInfiniteScrollViewDelegate <NSObject>
@@ -35,6 +35,8 @@
 	UIView *_currentView;
 	UIView *_prevView;
 	UIView *_nextView;
+	UIView *_prevView2;
+	UIView *_nextView2;
 	
 	CGPoint _currentOffset;
 	
