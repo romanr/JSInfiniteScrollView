@@ -3,7 +3,6 @@
 //  JSInfiniteScrolling
 //
 //  Created by James Addyman on 17/12/2011.
-//  Copyright (c) 2011 JamSoft. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
