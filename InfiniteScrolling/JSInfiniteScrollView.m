@@ -92,6 +92,7 @@
 		
 		[self layoutScrollView];
 	}
+	[self.delegate infiniteScrollView:self didScrollToViewAtIndex:_currentIndex];
 }
 
 - (void)layoutScrollView
@@ -147,6 +148,11 @@
 		
 		[self layoutScrollView];		
 	}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	[self redrawSubviews];
+	[self.delegate infiniteScrollView:self didScrollToViewAtIndex:_currentIndex];
+	
 }
 
 - (void)reloadData
