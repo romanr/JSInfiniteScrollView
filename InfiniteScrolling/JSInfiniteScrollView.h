@@ -27,7 +27,7 @@
 @interface JSInfiniteScrollView : UIView <UIScrollViewDelegate> {
 	
 	UIScrollView *_scrollView;
-
+	
 	NSUInteger _numberOfViews;
 	NSInteger _currentIndex;
 	
@@ -38,7 +38,7 @@
 	UIView *_nextView2;
 	
 	CGPoint _currentOffset;
-	
+	int selectedIndex;
 }
 
 @property (nonatomic, assign) id <JSInfiniteScrollViewDataSource> dataSource;

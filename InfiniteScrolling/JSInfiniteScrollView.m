@@ -59,6 +59,9 @@
 	[self addSubview:_scrollView];
 	
 	[self reloadData];
+	if (selectedIndex>0) {
+		[self setSelectedIndex:selectedIndex];
+	}
 }
 
 //trick to catch touches outsede of scrollview
@@ -79,19 +82,23 @@
 	if (index==_currentIndex) {
 		return;
 	}
+	if (_scrollView==nil) {
+		selectedIndex=index;
+		return;
+	}
 	if (index>_currentIndex) {
 		for (int i=_currentIndex; i<index; i++) {
-			[_scrollView setContentOffset:CGPointMake(_currentView.frame.size.width+1,0)];
+			[_scrollView setContentOffset:CGPointMake([self.dataSource widthForElementInInfiniteScrollView:self]+1,0)];
 			[self redrawSubviews];		
 		}
 	}
 	if (index<_currentIndex) {
 		for (int i=_currentIndex; i>index; i--) {
-			[_scrollView setContentOffset:CGPointMake(_currentView.frame.size.width-1,0)];
+			[_scrollView setContentOffset:CGPointMake([self.dataSource widthForElementInInfiniteScrollView:self]-1,0)];
 			[self redrawSubviews];		
 		}
 	}
-
+	
 	[self.delegate infiniteScrollView:self didScrollToViewAtIndex:_currentIndex];
 }
 
@@ -241,7 +248,7 @@
 		}
 	else if ([_scrollView contentOffset].x < _currentOffset.x  - (_currentView.frame.size.width *1.5) )
 		{
-	
+		
 		}
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
