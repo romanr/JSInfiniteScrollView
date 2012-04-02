@@ -74,6 +74,27 @@
     return nil;
 }
 
+
+- (void)setSelectedIndex:(int)index {
+	if (index==_currentIndex) {
+		return;
+	}
+	if (index>_currentIndex) {
+		for (int i=_currentIndex; i<index; i++) {
+			[_scrollView setContentOffset:CGPointMake(_currentView.frame.size.width+1,0)];
+			[self redrawSubviews];		
+		}
+	}
+	if (index<_currentIndex) {
+		for (int i=_currentIndex; i>index; i--) {
+			[_scrollView setContentOffset:CGPointMake(_currentView.frame.size.width-1,0)];
+			[self redrawSubviews];		
+		}
+	}
+
+	[self.delegate infiniteScrollView:self didScrollToViewAtIndex:_currentIndex];
+}
+
 - (NSInteger)previousIndex
 {
 	NSInteger previousIndex = _currentIndex - 1;

@@ -79,6 +79,8 @@ float static dial2Height=50.0;
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
+	[self.scrollView2 setSelectedIndex:5];
+	[self.scrollView2 setSelectedIndex:3];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
